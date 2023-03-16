@@ -1,0 +1,52 @@
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+syn.request(
+   {
+       Url = "http://127.0.0.1:6463/rpc?v=1",
+       Method = "POST",
+       Headers = {
+           ["Content-Type"] = "application/json",
+           ["origin"] = "https://discord.com",
+       },
+       Body = game:GetService("HttpService"):JSONEncode(
+           {
+               ["args"] = {
+                   ["code"] = "YbSMtGYKr5",
+               },
+               ["cmd"] = "INVITE_BROWSER",
+               ["nonce"] = "."
+           })
+   })
+
+local key = "dxdhubv2"
+
+local X = Material.Load({
+    Title = "Dxd's Hub v2",
+    Style = 3,
+    SizeX = 250,
+    SizeY = 350,
+    Theme = "Light",
+    ColorOverrides = {
+        MainFrame = Color3.fromRGB(235,235,235)
+    }
+})
+
+local home = X.New({
+    Title = "Key System"
+})
+
+local D = home.TextField({
+    Text = "Enter Key",
+    Callback = function(Value)
+        return
+    end
+})
+
+local a = home.Button({
+    Text = "Check Key",
+    Callback = function()
+        if D.Value == key then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AsdfHAHA/dxdhubv1/main/ez"))()
+        end
+    end
+})
